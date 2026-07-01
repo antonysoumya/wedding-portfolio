@@ -5,12 +5,12 @@ import FloatingPetals from './FloatingPetals.jsx'
 import FloralCorners from './FloralCorners.jsx'
 import LightRays from './LightRays.jsx'
 import AlbumBook3D from './AlbumBook3D.jsx'
-import { getRange } from '../data/photos.js'
+import { HERO_PHOTOS } from '../data/photos.js'
 
 const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
 export default function HeroLanding() {
-  const heroPhotos = getRange(1, 4)
+  const heroPhotos = HERO_PHOTOS
 
   return (
     <section
@@ -19,9 +19,10 @@ export default function HeroLanding() {
     >
       <WeddingBackground theme="main" />
       <LightRays color="rgba(216,181,109,0.35)" />
-      <FloralCorners variant="lavender" corners={['tl']} size={220} opacity={0.85} />
-      <FloralCorners variant="burgundy" corners={['br']} size={220} opacity={0.85} />
-      <FloatingPetals count={14} />
+      {/* Florals frame the outer edges only — kept clear of the headline / logo */}
+      <FloralCorners variant="lavender" corners={['bl']} size={200} opacity={0.85} />
+      <FloralCorners variant="burgundy" corners={['tr', 'br']} size={190} opacity={0.8} />
+      <FloatingPetals count={12} />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
         {/* Text */}

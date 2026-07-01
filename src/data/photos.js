@@ -259,22 +259,26 @@ const FOREVER_WORDS = ['SMILE', 'VOWS', 'GRACE', 'TOGETHER', 'FOREVER', 'BLESSIN
 // content so every section shows the right people/moment. Lengths match each
 // chapter's slot count (15/15/15/25/15/20/15).
 const SOURCES = {
-  // Bride — solo bride first (31,32,45,46), then bride-forward frames.
-  bride: [31, 32, 45, 46, 8, 9, 33, 10, 11, 7, 6, 5, 4, 3, 2],
+  // Bride — all four solo-bride frames lead the featured slots (main + details),
+  // then bride-forward frames fill the rail.
+  bride: [31, 45, 32, 46, 8, 9, 10, 11, 33, 7, 6, 5, 4, 3, 2],
   // Groom — solo groom + getting-ready details.
   groom: [39, 40, 41, 42, 43, 83, 84, 85, 86, 87, 88, 89, 90, 37, 38],
-  // Together / pre-wedding — couple outdoor shoot + romantic couple frames.
-  together: [1, 12, 13, 14, 15, 16, 17, 18, 97, 98, 99, 106, 107, 108, 109],
-  // Ceremony — cross/rings/pew details, altar, and church couple portraits.
+  // Together / pre-wedding — pre-wedding couple in the 3D stack, green-outfit
+  // couple frames featured in the story cards.
+  together: [1, 16, 17, 18, 97, 98, 99, 106, 107, 108, 13, 14, 15, 12, 109],
+  // Ceremony — details + altar; index 10 is the large "cover" photo (couple on
+  // the church steps).
   ceremony: [
-    34, 35, 36, 44, 47, 48, 49, 50, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+    34, 35, 36, 44, 47, 48, 49, 69, 70, 71, 50, 72, 73, 74, 75, 76, 77, 78, 79,
     80, 81, 82, 91, 92, 93,
   ],
   // Family & blessings — family groups + couple with elders/guests.
   family: [22, 23, 111, 112, 113, 114, 115, 116, 44, 54, 55, 20, 21, 110, 109],
-  // Reception — engagement/reception stage + white-gown reception + evening.
+  // Reception ("A Night of Joy") — couple-forward: wide cover + portraits +
+  // candids + story cards.
   reception: [
-    19, 24, 25, 26, 27, 28, 29, 30, 51, 52, 53, 56, 57, 58, 59, 60, 61, 62, 117,
+    61, 62, 57, 58, 51, 52, 53, 56, 59, 60, 24, 25, 26, 117, 27, 28, 29, 30, 19,
     118,
   ],
   // Forever — emotional closing montage across the day.
@@ -326,6 +330,13 @@ export const PHOTOS = buildPhotos()
 // Helper accessors used across sections.
 export const getRange = (from, to) => PHOTOS.filter((p) => p.id >= from && p.id <= to)
 export const getByChapter = (key) => PHOTOS.filter((p) => p.chapterKey === key)
+export const bySource = (n) =>
+  PHOTOS.find((p) => p.image.endsWith(`wedding_${pad(n)}.jpg`))
+
+// Hero stack — couple / "together" frames (not solo portraits).
+export const HERO_PHOTOS = [106, 73, 107, 117]
+  .map(bySource)
+  .filter(Boolean)
 
 export const FILTERS = [
   { key: 'all', label: 'All' },

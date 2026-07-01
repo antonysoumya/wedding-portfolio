@@ -28,8 +28,6 @@ export default function AlbumBook3D({ photos = [], badge = '01 / 120' }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 * i, duration: 0.8 }}
-            animate={{ y: [0, -8, 0] }}
-            // eslint-disable-next-line react/no-unknown-property
           >
             <motion.div
               animate={{ y: [0, -10, 0], rotate: [rot, rot + 1.5, rot] }}
@@ -52,7 +50,6 @@ export default function AlbumBook3D({ photos = [], badge = '01 / 120' }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9, ease: 'easeOut' }}
-        animate={{ y: [0, -14, 0] }}
       >
         <motion.div
           animate={{ y: [0, -14, 0], rotateY: [0, -2, 0] }}

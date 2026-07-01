@@ -34,19 +34,31 @@ export default function WeddingBackground({ theme = 'main', overlay = 0.0, child
   const fallback = BG_FALLBACK[theme] || 'royal-hero-bg'
 
   return (
-    <div className={`absolute inset-0 -z-10 ${fallback} ${className}`} aria-hidden="true">
+    <div className={`absolute inset-0 z-0 ${fallback} ${className}`} aria-hidden="true">
       {asset && (
         <img
           src={asset}
           alt=""
-          loading="lazy"
           decoding="async"
           onError={(e) => {
             e.currentTarget.style.display = 'none'
           }}
-          className="h-full w-full object-cover opacity-70 animate-cloudMove"
-          style={{ mixBlendMode: 'multiply' }}
+          className="h-full w-full object-cover opacity-95 animate-cloudMove"
         />
+      )}
+      {/* Soft scrim so headings/text stay legible over the imagery.
+          Dark themes (reception) get a wine veil; light themes get an ivory one. */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            theme === 'reception'
+              ? 'linear-gradient(180deg, rgba(58,10,19,0.35) 0%, rgba(37,5,9,0.55) 100%)'
+              : 'linear-gradient(90deg, rgba(255,253,248,0.78) 0%, rgba(255,253,248,0.34) 50%, rgba(255,253,248,0.1) 100%)',
+        }}
+      />
+      {overlay > 0 && (
+        <div className="absolute inset-0" style={{ background: `rgba(255,253,248,${overlay})` }} />
       )}
       {overlay > 0 && (
         <div className="absolute inset-0" style={{ background: `rgba(255,253,248,${overlay})` }} />
