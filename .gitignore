@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+.DS_Store
+*.local
+.vite
+
+# raw source photos (renamed copies live in public/images)
+photos/
+
+# raw source media (optimized copies live in public/)
+video/
+pngs-bg/
+
+# local Claude Code settings (may contain tokens)
+.claude/

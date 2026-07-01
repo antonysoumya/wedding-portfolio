@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #fffdf8;
+  --cream: #faf4ea;
+  --lavender-mist: #e9ddf5;
+  --lavender-soft: #c8a2c8;
+  --lavender-deep: #8e6fae;
+  --burgundy: #800020;
+  --wine: #5a0f1b;
+  --rose-wine: #9b2d42;
+  --champagne: #d8b56d;
+  --beige: #efe2d0;
+  --charcoal: #24201e;
+  --muted: #7a6a63;
+  --soft-border: #e9ded2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: 'Lora', serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ---------- Typography helpers ---------- */
+.font-title { font-family: 'Playfair Display', serif; }
+.font-heading { font-family: 'Cormorant Garamond', serif; }
+.font-body { font-family: 'Lora', serif; }
+.font-ui { font-family: 'Inter', sans-serif; }
+.font-decor { font-family: 'Great Vibes', cursive; }
+.font-allura { font-family: 'Allura', cursive; }
+
+.label-eyebrow {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--lavender-deep);
+}
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+}
+
+.script-burgundy {
+  font-family: 'Great Vibes', cursive;
+  color: var(--burgundy);
+}
+
+/* ---------- Background themes ---------- */
+.royal-hero-bg {
+  background:
+    radial-gradient(120% 80% at 70% 0%, rgba(233, 221, 245, 0.9), transparent 55%),
+    radial-gradient(90% 70% at 15% 100%, rgba(128, 0, 32, 0.16), transparent 60%),
+    linear-gradient(160deg, var(--ivory), var(--cream) 55%, var(--lavender-mist));
+}
+.lavender-wedding-bg {
+  background:
+    radial-gradient(80% 60% at 20% 10%, rgba(233, 221, 245, 0.85), transparent 60%),
+    linear-gradient(155deg, var(--ivory), var(--lavender-mist));
+}
+.burgundy-wedding-bg {
+  background:
+    radial-gradient(80% 60% at 85% 15%, rgba(128, 0, 32, 0.12), transparent 60%),
+    linear-gradient(155deg, var(--ivory), var(--cream));
+}
+.church-ceremony-bg {
+  background:
+    radial-gradient(70% 55% at 50% 0%, rgba(216, 181, 109, 0.28), transparent 60%),
+    radial-gradient(90% 70% at 50% 100%, rgba(128, 0, 32, 0.14), transparent 65%),
+    linear-gradient(180deg, var(--cream), var(--beige));
+}
+.reception-wine-bg {
+  background:
+    radial-gradient(70% 60% at 30% 20%, rgba(155, 45, 66, 0.25), transparent 60%),
+    radial-gradient(80% 70% at 80% 90%, rgba(90, 15, 27, 0.4), transparent 65%),
+    linear-gradient(160deg, var(--wine), #3a0a13 70%, #250509);
+}
+.forever-lavender-bg {
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(233, 221, 245, 0.8), transparent 60%),
+    linear-gradient(180deg, var(--ivory), var(--cream));
+}
+
+/* Use uploaded PNG assets when present; gradients above are the fallback. */
+.bg-asset {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Luxury photo frame ---------- */
+.photo-frame-luxury {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px -18px rgba(90, 15, 27, 0.4), 0 2px 0 rgba(216, 181, 109, 0.4);
+}
+.photo-frame-luxury::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(216, 181, 109, 0.7);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 2;
+}
+.photo-frame-luxury img {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Ornamental gold corners */
+.frame-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: var(--champagne);
+  z-index: 3;
+  opacity: 0.9;
+}
+.frame-corner.tl { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; border-top-left-radius: 8px; }
+.frame-corner.tr { top: 6px; right: 6px; border-top: 2px solid; border-right: 2px solid; border-top-right-radius: 8px; }
+.frame-corner.bl { bottom: 6px; left: 6px; border-bottom: 2px solid; border-left: 2px solid; border-bottom-left-radius: 8px; }
+.frame-corner.br { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; border-bottom-right-radius: 8px; }
+
+.album-card {
+  background: #fff;
+  border: 1px solid var(--soft-border);
+  border-radius: 16px;
+  box-shadow: 0 14px 40px -20px rgba(36, 32, 30, 0.35);
+  overflow: hidden;
+}
+
+.video-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid rgba(216, 181, 109, 0.55);
+  box-shadow: 0 30px 80px -30px rgba(90, 15, 27, 0.6);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, var(--burgundy), var(--wine));
+  color: var(--ivory);
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 181, 109, 0.5);
+  box-shadow: 0 14px 30px -12px rgba(90, 15, 27, 0.6);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -14px rgba(90, 15, 27, 0.7); }
+.btn-ghost {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--burgundy);
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(128, 0, 32, 0.4);
+  transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+.btn-ghost:hover { transform: translateY(-3px); background: rgba(128, 0, 32, 0.06); }
+
+/* ---------- Photography edit filters ---------- */
+.wedding-soft { filter: brightness(1.01) contrast(1.04) saturate(0.92) sepia(0.03); }
+.lavender-bridal { filter: brightness(1.03) contrast(1.01) saturate(0.88) sepia(0.04); }
+.burgundy-rich { filter: brightness(0.99) contrast(1.07) saturate(0.95) sepia(0.03); }
+.church-golden { filter: brightness(1.01) contrast(1.06) saturate(0.94) sepia(0.05); }
+.reception-wine { filter: brightness(0.98) contrast(1.08) saturate(0.96) sepia(0.04); }
+.editorial-bw { filter: grayscale(1) brightness(1.03) contrast(1.12); }
+
+/* ---------- Mobile snap sections ---------- */
+.mobile-snap-section {
+  scroll-snap-align: start;
+}
+.h-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+}
+.h-scroll > * { scroll-snap-align: center; flex: 0 0 auto; }
+.h-scroll::-webkit-scrollbar { height: 6px; }
+.h-scroll::-webkit-scrollbar-thumb { background: rgba(200, 162, 200, 0.5); border-radius: 999px; }
+
+/* ---------- Animations (also usable outside Framer) ---------- */
+.animate-stackFloat3D { animation: stackFloat3D 8s ease-in-out infinite; }
+@keyframes stackFloat3D {
+  0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+  50% { transform: translateY(-14px) rotateX(2deg) rotateY(-2deg); }
+}
+.animate-petalFloat { animation: petalFloat linear infinite; }
+@keyframes petalFloat {
+  0% { transform: translateY(-10%) translateX(0) rotate(0); opacity: 0; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
+}
+.animate-cloudMove { animation: cloudMove 18s ease-in-out infinite; }
+@keyframes cloudMove {
+  0% { transform: translateX(-3%); }
+  50% { transform: translateX(3%); }
+  100% { transform: translateX(-3%); }
+}
+.animate-softLightPulse { animation: softLightPulse 6s ease-in-out infinite; }
+@keyframes softLightPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+.frameHoverLift { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.frameHoverLift:hover { transform: translateY(-8px) rotate(-0.4deg); }
+.pageTurn { transition: transform 0.8s ease; transform-style: preserve-3d; }
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility */
+.text-shadow-soft { text-shadow: 0 2px 20px rgba(255, 253, 248, 0.6); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
