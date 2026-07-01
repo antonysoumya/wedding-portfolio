@@ -5,14 +5,6 @@
 
 import { asset } from '../utils/asset.js'
 
-const FOCUS_POOL = [
-  'center center',
-  'center top',
-  'center bottom',
-  'left center',
-  'right center',
-]
-
 // Chapter definitions. `from`/`to` are inclusive photo numbers (1..120).
 const CHAPTERS = [
   {
@@ -272,8 +264,9 @@ const SOURCES = {
     34, 35, 36, 44, 47, 49, 50, 69, 70, 71, 48, 72, 73, 74, 75, 76, 77, 78, 79,
     80, 81, 82, 91, 92, 93,
   ],
-  // Family & blessings — family groups + couple with elders/guests.
-  family: [22, 23, 111, 112, 113, 114, 115, 116, 44, 54, 55, 20, 21, 110, 109],
+  // Family & blessings — new family group portraits lead, then existing family
+  // groups + couple with elders/guests.
+  family: [121, 122, 123, 22, 23, 111, 112, 113, 114, 115, 116, 44, 54, 55, 20],
   // Reception ("A Night of Joy") — couple-forward: wide cover + portraits +
   // candids + story cards.
   reception: [
@@ -311,6 +304,7 @@ const ORIENTATION = {
   106: 'portrait', 107: 'portrait', 108: 'portrait', 109: 'portrait', 110: 'portrait',
   111: 'landscape', 112: 'landscape', 113: 'landscape', 114: 'portrait', 115: 'portrait',
   116: 'landscape', 117: 'portrait', 118: 'portrait', 119: 'portrait', 120: 'portrait',
+  121: 'landscape', 122: 'landscape', 123: 'landscape',
 }
 
 function pad(n) {
